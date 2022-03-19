@@ -45,6 +45,7 @@ class PagamentoController {
 	}
 
 	@PostMapping
+	@HystrixCommand(threadPoolKey = "criaPagamentoThreadPool")
 	ResponseEntity<PagamentoDto> cria(@RequestBody Pagamento pagamento, UriComponentsBuilder uriBuilder) {
 		pagamento.setStatus(Pagamento.Status.CRIADO);
 		Pagamento salvo = pagamentoRepo.save(pagamento);
