@@ -25,9 +25,10 @@ public class EatsApplication {
 			public void apply(RequestTemplate template) {
 				Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 				if(authentication == null) {
+					System.out.println("Caiu");
 					return;
 				}
-				
+				System.out.println("Passou");
 				OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
 				template.header("Authotization", "Bearer" + details.getTokenValue());			
 			}
