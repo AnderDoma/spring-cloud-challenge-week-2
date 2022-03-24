@@ -33,7 +33,8 @@ public class Pedido {
 		CONFIRMADO,
 		PRONTO,
 		SAIU_PARA_ENTREGA,
-		ENTREGUE;
+		ENTREGUE,
+		PROCESSADO;
 	}
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)

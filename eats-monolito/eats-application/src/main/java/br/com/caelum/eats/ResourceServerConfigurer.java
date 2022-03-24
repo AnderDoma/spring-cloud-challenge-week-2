@@ -18,7 +18,6 @@ public class ResourceServerConfigurer extends ResourceServerConfigurerAdapter {
 	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		System.out.println("Verificando permissão");
 		http.authorizeRequests().antMatchers("/admin/**", "/pedidos**").hasRole("ADM")
 				.antMatchers("/pedidos**").hasRole("CLI").antMatchers(HttpMethod.GET, "/restaurantes/{id}")
 				.hasAnyRole("CLI") /* em teste */
